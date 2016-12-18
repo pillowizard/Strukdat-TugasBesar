@@ -1,0 +1,50 @@
+unit Kumpulan_Fungsi;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Menus, MMSystem, ExtCtrls, Form_About_Unit;
+
+  function bilang_saja(bilang_teks:string):string;
+  function app_path():PAnsiChar;
+
+var
+   panjang_teks:integer;
+
+implementation
+
+  function bilang_saja(bilang_teks:string):string;
+
+  var
+      nomor_bilang:integer;
+      kode_eror:integer;
+
+  begin
+       delete(bilang_teks, 1, 2);
+       val(bilang_teks, nomor_bilang, kode_eror);
+       if (kode_eror <> 0) then
+       begin
+            bilang_saja := 'EROR';
+       end     
+       else
+       begin
+            if (nomor_bilang div 10000 > 1) then
+            begin
+                 //
+            end;
+           //bilang_saja := bilang_teks;
+           {for i := 1 to panjang_teks do
+           begin
+
+           end; }
+       end;
+  end;
+
+  function app_path():PAnsiChar;
+
+  begin
+       app_path := PChar(ExtractFilePath(ParamStr(0)));
+  end;
+
+end.
